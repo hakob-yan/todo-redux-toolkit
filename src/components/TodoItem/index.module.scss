@@ -1,0 +1,26 @@
+.AddTodo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    margin: 17px;
+    .imgDel{
+        width: 25px;
+        padding: 0 5px;
+        cursor: pointer;
+
+    }
+    .imgCnt{
+        width: 25px;
+        padding: 0 5px;
+        margin-left:auto;
+        cursor: pointer;
+
+
+    }
+    .check{
+        width: 20px;
+        height: 20px;
+        margin-right:20px;
+    }
+}
