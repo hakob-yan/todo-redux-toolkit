@@ -21,7 +21,7 @@ function App() {
   return (
     <div className={styles.App}>
       <AddTodo />
-      <TodoList data={data}/>
+      <TodoList/>
     </div>
   );
 }

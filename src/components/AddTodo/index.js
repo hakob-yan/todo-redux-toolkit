@@ -5,16 +5,15 @@ import { addTask } from '../../redux/tasksSlice';
 
 const AddTodo = () => {
     const [value, setValue] = useState('');
-    const  dispatch  = useDispatch();
+    const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(addTask({
-            payload: {
+        if (value.trim().length)
+            dispatch(addTask({
                 description: value,
                 createdAt: new Date().toLocaleString()
-            }
-        }))
+            }))
         setValue('')
     }
 
