@@ -14,6 +14,7 @@ const TodoList = () => {
                     id={item.id}
                     description={item.description}
                     date={item.createdAt}
+                    completed={item.completed}
                 />
             })}
         </div>);

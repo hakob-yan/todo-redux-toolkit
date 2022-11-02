@@ -22,8 +22,13 @@ const tasksSlice = createSlice({
                 if (item.id === action.payload.id) item.description = action.payload.description
             })
         },
+        toggleCheck: (state, action) => {
+            state.forEach(item => {
+                if (item.id === action.payload.id) item.completed = !item.completed
+            })
+        },
     }
 });
 
-export const { addTask, remove, rename } = tasksSlice.actions;
+export const { addTask, remove, rename ,toggleCheck} = tasksSlice.actions;
 export default tasksSlice.reducer;
