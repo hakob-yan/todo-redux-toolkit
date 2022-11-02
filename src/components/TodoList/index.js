@@ -8,6 +8,7 @@ const TodoList = ({ data }) => {
         <div className={styles.AddTodo}>
             {data.length && data.map(item => {
                 return <TodoItem
+                    key={item.id}
                     id={item.id}
                     description={item.description}
                     date={item.createdAt}
