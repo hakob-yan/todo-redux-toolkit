@@ -11,13 +11,19 @@ const TodoItem = ({ id, description, completed }) => {
     const ref = useRef(null)
     useEffect(() => {
         if (!toggle && ref) {
-            ref.current.focus()
+            ref.current.focus();
+            console.log(toggle, 'focusss');
+        }
+        if (toggle && ref) {
+            ref.current.blur();
+            console.log(toggle, 'blurr');
+
         }
     }, [toggle])
 
     const dispatch = useDispatch();
     const handleRemove = () => dispatch(remove({ id }));
-    const handleRename = () => { ref.current.focus(); setToggle(!toggle) }
+    const handleRename = () => { setToggle(!toggle); }
     const handleInput = (e) => dispatch(rename({ id, description: e.target.value }));
     const handleBlur = () => setToggle(!toggle);
     const handleCheck = () => dispatch(toggleCheck({ id }))
@@ -30,12 +36,11 @@ const TodoItem = ({ id, description, completed }) => {
                 onChange={handleCheck} />
             <input style={{ textDecoration: completed ? 'line-through' : 'none' }} className={styles.input}
                 ref={ref}
-                onBlur={handleBlur}
                 disabled={toggle}
                 onChange={handleInput}
                 value={description} />
-            <img onClick={handleRename} className={styles.imgCnt} src={RemLogo} />
-            <img onClick={handleRemove} className={styles.imgDel} src={DelLogo} />
+            <img onClick={handleRename} className={styles.imgCnt} src={RemLogo} alt='rename' />
+            <img onClick={handleRemove} className={styles.imgDel} src={DelLogo} alt='delete' />
 
 
         </div>);
