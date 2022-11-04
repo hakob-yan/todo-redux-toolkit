@@ -12,11 +12,9 @@ const TodoItem = ({ id, description, completed }) => {
     useEffect(() => {
         if (!toggle && ref) {
             ref.current.focus();
-            console.log(toggle, 'focusss');
         }
         if (toggle && ref) {
             ref.current.blur();
-            console.log(toggle, 'blurr');
 
         }
     }, [toggle])

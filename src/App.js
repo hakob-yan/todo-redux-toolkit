@@ -3,25 +3,19 @@ import styles from './App.module.scss';
 import AddTodo from './components/AddTodo';
 import TodoList from './components/TodoList';
 import { data } from './db';
-
-const p = () => new Promise(function (resolve) {
-  setTimeout(() => resolve(data), 300)
-})
+import { fetchTodos } from './redux/tasksSlice'
+import { useDispatch } from 'react-redux'
 
 
 function App() {
-  const [data, setData] = useState([])
+  const dispatch = useDispatch();
   useEffect(() => {
-    const getItems = async () => {
-      const x = await p()
-      setData(x)
-    }
-    getItems()
+    dispatch(fetchTodos())
   }, [])
   return (
     <div className={styles.App}>
       <AddTodo />
-      <TodoList/>
+      <TodoList />
     </div>
   );
 }

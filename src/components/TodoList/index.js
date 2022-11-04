@@ -5,7 +5,6 @@ import { seSelector, useSelector } from 'react-redux';
 
 const TodoList = () => {
     const data = useSelector(state => state.tasks)
-    console.log(data);
     return (
         <div className={styles.AddTodo}>
             {data.length && data.map(item => {
