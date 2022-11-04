@@ -9,7 +9,6 @@ import { remove, rename, toggleCheck } from '../../redux/tasksSlice';
 const TodoItem = ({ id, description, completed }) => {
     const [toggle, setToggle] = useState(true)
     const ref = useRef(null)
-    const refRename = useRef(null)
     function getRelatedElement(event) {
         if (toggle && event.relatedTarget === ref.current) {
             setToggle(!toggle)
@@ -35,8 +34,6 @@ const TodoItem = ({ id, description, completed }) => {
     return (
         <div className={styles.AddTodo}>
             <input id={id}
-
-                ref={refRename}
                 checked={completed}
                 className={styles.check}
                 type='checkbox'
