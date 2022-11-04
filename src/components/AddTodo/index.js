@@ -6,7 +6,6 @@ import { addTask } from '../../redux/tasksSlice';
 const AddTodo = () => {
     const [value, setValue] = useState('');
     const dispatch = useDispatch();
-
     const handleSubmit = (e) => {
         e.preventDefault();
         if (value.trim().length)
